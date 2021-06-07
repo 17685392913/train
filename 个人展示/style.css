@@ -1,15 +1,14 @@
 * {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
 }
 .header {
-  width: 100%;
-  height: 50px;
   background-color: rgb(230, 49, 49);
 }
 .container {
   width: 1200px;
-  height: 100%;
+  height: 50px;
+  margin: 0 auto;
 }
 .icon {
   display: inline-block;
@@ -34,12 +33,9 @@
 .container a {
   color: #fff;
 }
-.main {
-  width: 100%;
-  text-align: center;
-}
 .movies, .books {
   width: 1200px;
+  margin: 0 auto;
 }
 .movies::after, .books::after {
   content: "";
@@ -47,14 +43,14 @@
   display: block;
   clear: both;
 }
-.movies ul {
+.movies ul, .books ul {
   margin-top: 20px;
   list-style: none;
+  display: flex;
+  justify-content: space-between;
 }
-.movies ul li {
-  float: left;
-  margin: 0 13px;
-  padding: 10px;
+.movies ul li, .books ul li{
+  padding: 10px; 
   border: 1px solid #C3A7A8;
 }
 .movies ul li:hover {
@@ -65,15 +61,8 @@
   width: 250px;
   height: 300px;
 }
-.books ul {
-  margin-top: 20px;
-  list-style: none;
-}
-.books ul li {
-  float: left;
-  margin: 0 13px;
-  padding: 10px;
-  border: 1px solid #C3A7A8;
+.movies ul li h4, .books ul li h4 {
+  text-align: center;
 }
 .books ul li:hover {
   border: 1px solid #f00;
@@ -89,16 +78,17 @@ h2 {
 }
 .movies hr, .books hr {
   width: 50px;
+  margin: 0 auto;
   border-bottom: 3px solid ;
 }
 .footer {
-  width: 100%;
   margin-top: 10px;
   background-color: #810014;
 }
 .footer_top {
   width: 1200px;
   height: 200px;
+  margin: 0 auto;
 }
 .footer_top p {
   float: left;
@@ -113,10 +103,12 @@ h2 {
   width: 150px;
   height: 150px;
   margin-top: 25px;
+  margin-left: 40px;
 }
 .footer hr {
   width: 1200px;
   border: 1px solid #000;
+  margin: 0 auto;
   clear: both;
 }
 .footer_bottom {
