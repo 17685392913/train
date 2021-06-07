@@ -50,7 +50,7 @@ body {
   top: 0;
   left: 0;
   padding: 10px 0;
-  columns: #fff;
+  color: #fff;
   pointer-events: none;
   /* 过渡 */
   transition: all 0.5s;
