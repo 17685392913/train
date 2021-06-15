@@ -2,15 +2,16 @@ $(document).ready(function(){
     var bageArea = $(".container");
     var bageHeight = bageArea.height();
     var bageWidth = bageArea.width();
+    var flag = false;
+    var color = 1; 
 
     //点击发射弹幕按钮
     $("#emit").click(function(){
         var bageContent = $(".emit_content").val();
         // $('.emit_content').val("");
-        var textobj = $("<div>"+bageContent+"</div>");
+        var textobj = $("<span>"+bageContent+"</span>");
         bageArea.append(textobj);
         textobj.css({
-            display: "inline",
             position: "absolute"
         }); 
         textobj.css({
@@ -20,8 +21,12 @@ $(document).ready(function(){
         var begin = bageWidth-textobj.width();
         textobj.css({
             top: top(textobj.height()),
-            left: begin
+            left: bageWidth,
+            width: textobj.width()
         })
+        if(flag){
+            $("span").css("opacity",0.3);
+        }
         var time = 10000 + 20000*Math.random();
         textobj.animate({
             left:"-"+begin
@@ -31,6 +36,23 @@ $(document).ready(function(){
        
     });
 
+    //设置透明度
+    $("#transparent").click(function() {
+        flag = !flag;
+        if(flag){
+            $("span").css("opacity",0.3);
+        }else{
+            $("span").css("opacity",1);
+        }
+    })
+
+    //回车事件
+    $(".emit_content").keyup(function(e){
+        if(e.keyCode == 13) {
+            $("#emit").click();
+        }
+　　});
+        
     //清屏事件
     $("#clear").click(function(){
         bageArea.empty();
