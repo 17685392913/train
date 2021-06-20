@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" href="./css/user.css">
+	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=uG4Cl4pP5lDeuCZ7SDqXRSQjfmHiAKPH"></script>
+	<title>地图展示</title>
+</head>
+<body>
+	<div class="headers">
+    <div class="containers">
+      <i class="icon"></i>
+      <span>天天果园</span>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="news.html">新闻</a></li>
+        <li><a href="user.html">关于我们</a></li>
+      </ul>
+    </div>
+		<div class="about">
+			<h3>关于我们<h3>
+		</div>
+  </div>
+	<div class="main">
+		<div id="allmap"></div>
+		<div class="content">
+			<p>天天果园隶属于上海天天鲜果电子商务有限公司。成立于2009年,是一家基于互联网技术的生鲜服务提供商。
+				初心是希望让所有人,轻松愉快地享用到全球优质的生鲜商品。用认真严苛的态度,对待每一个环节,
+				不断改进,提升用户体验。选择与业内更专业供应商.机构合作,确保规范和品质。
+			</p>
+			<ul>
+				<li>
+          <img src="./img/地图2.png" alt=""><span class="place"></span>
+        </li>
+				<li>
+          <img src="./img/邮箱.png" alt=""><span>mys@example.com</span>
+        </li>
+				<li>
+          <img src="./img/联系我们.png" alt=""><span>123-456-789</span>
+        </li>
+			</ul>
+		</div>
+	</div>
+	<div class="footer">
+		<ul class="footer_top">
+			<li>
+        <img src="./img/地图2.png" alt="">
+        <p>福州市</p>
+      </li>
+      <li>
+        <img src="./img/邮箱.png" alt="">
+        <p>mys@example.com</p>
+      </li>
+      <li>
+        <img src="./img/联系我们.png" alt="">
+        <p>123-456-789</p>
+      </li>
+      <li>
+        <img src="./img/二维码.png" alt="">
+        <p>二维码</p>
+      </li>
+		</ul>
+		<hr>
+		<div>版权所有&copy;天天果园</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		// 百度地图API功能
+		var map = new BMap.Map("allmap");
+		var point = new BMap.Point(116.331398,39.897445);
+		map.centerAndZoom(point,11);
+
+		map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+
+		var geolocation = new BMap.Geolocation();
+		geolocation.getCurrentPosition(function(r){
+				if(this.getStatus() == BMAP_STATUS_SUCCESS){
+						var mk = new BMap.Marker(r.point);
+						map.addOverlay(mk);
+						map.panTo(r.point);
+						var point = new BMap.Point(r.point.lng,r.point.lat);//用所定位的经纬度查找所在地省市街道等信息
+						var gc = new BMap.Geocoder();
+						gc.getLocation(point, function(rs){
+							var addComp = rs.addressComponents; 
+							$('.place').append(rs.address)
+
+						});
+				}
+				else {
+						alert('failed'+this.getStatus());
+				}
+		},{enableHighAccuracy: true})
+	})
+	
+</script>

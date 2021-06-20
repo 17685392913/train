@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新闻</title>
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./css/news.css">
+</head>
+<body>
+  <div class="headers">
+    <div class="containers">
+      <i class="icon"></i>
+      <span>天天果园</span>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="news.html">新闻</a></li>
+        <li><a href="user.html">关于我们</a></li>
+      </ul>
+    </div>
+    <div class="new_le">
+			<span>what's new!</span>
+		</div>
+  </div>
+  <div class="news_con">
+    <ul class="news_li">
+    </ul>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link pre" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item"><a class="page-id page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-id page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-id page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link next" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer">
+    <ul class="footer_top">
+      <li>
+        <img src="./img/地图2.png" alt="">
+        <p>福州市</p>
+      </li>
+      <li>
+        <img src="./img/邮箱.png" alt="">
+        <p>mys@example.com</p>
+      </li>
+      <li>
+        <img src="./img/联系我们.png" alt="">
+        <p>123-456-789</p>
+      </li>
+      <li>
+        <img src="./img/二维码.png" alt="">
+        <p>二维码</p>
+      </li>
+    </ul>
+    <hr>
+    <div>版权所有&copy;天天果园</div>
+  </div>
+  <script>
+    $(document).ready(function(){
+
+      let m = 1;
+
+      //获取点击页的数据并添加到页面中
+      let add = function(page,flag) {
+        axios.get("https://lingqule.papamk.com/wp-json/w2w/v1/products?page="+page).then(function(res){
+          
+          if(flag == 1) {
+            $(".news_li").empty();
+          }
+          for(let i=0; i<res.data.length-1; i++){
+            
+            let li = $('<li></li>');
+            li.append(`
+              <img src=${res.data[i].images[0].src}>
+              <h3>${res.data[i].name}</h3>
+              <p>${res.data[i].date_created}</p>
+            `);
+            $(".news_li").append(li);
+            li.attr('id',res.data[i].id);
+          }
+
+          //跳转详情页
+          $(".news_li li").each(function(){
+            $(this).click(function(){
+              window.location.href = `details.html?id=${$(this).attr('id')}`;
+            })
+          })
+        })
+      }
+      
+      //页面初始时自动获取第一页的数据并显示
+      add(1,0);
+
+      //点击事件
+      $(".page-id").each(function(){ 
+
+        $(this).click(function(){
+          add($(this).html(),1);
+          m = parseInt($(this).html());
+        })
+      });
+
+      //上一页
+      $(".pre").click(function(){
+        if(m <= 1) {
+          return
+        }
+        add( m - 1,1);
+        m = m-1;
+      });
+
+      // 下一页
+      $(".next").click(function(){
+        add( m + 1,1);
+        m = m + 1;
+      });
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.headers {
+  background-color: #fff;
+}
+.containers {
+    width: 1200px;
+    height: 50px;
+    padding: 0;
+    margin: 0 auto;
+}
+.icon {
+    display: inline-block;
+    width: 32px;
+    height: 32px; 
+    vertical-align: middle;
+    background: url(../img/logo.png);
+}
+.containers span {  
+    font-size: 20px;
+    line-height: 50px;
+    vertical-align: middle;
+}
+.containers ul {
+    float: right;
+    margin-bottom: 0;
+}
+.containers li {
+    display: inline;
+    line-height: 50px;
+    
+}
+.containers a {
+    color: #000;
+}
+.containers a:hover {
+    color: #f00;
+}
+.d-block {
+    height: 500px;
+}
+.main {
+    width: 1200px;
+    margin: 0 auto;
+}
+h2 {
+    margin-top: 50px;
+    text-align: center;
+}
+.service {
+    width: 1200px;
+    height: 160px;
+    background-color: #F4F4F4;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+}
+.service li {
+    padding: 10px;
+    text-align: center;
+}
+.service h4 {
+    margin-top: 10px;
+}
+.service li img {
+    display: inline-block;
+}
+.team {
+    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.img_in img {
+    width: 600px;
+    height: 600px;
+}
+.present {
+    width: 600px;
+    height: 600px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.present h2 {
+   margin-top: 10px;
+}
+.present p {
+   width: 460px;
+   margin-top: 20px;
+}
+.present hr {
+    margin-top: 300px;
+    border: 1px solid #000;
+    width: 300px;
+}
+.news {
+    width: 1200px; 
+}
+.news ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.news li {
+    width: 250px;
+}
+.news img {
+    width: 250px;
+    height: 200px;
+}
+.footer {
+    background-color: #f4f4f4;
+}
+.footer_top {
+    width: 1200px;
+    height: 200px;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.footer_top li {
+    text-align: center;
+}
+.footer_top p {
+    margin-bottom: 0;
+}
+.footer hr {
+    width: 200px;
+    margin: 0 auto;
+}
+.footer div {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
