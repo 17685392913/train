@@ -46,6 +46,7 @@
 .deta_ti h2 {
   border-left: 5px solid #f00;
   padding-left: 10px;
+  margin-top: 10px;
 }
 .deta_ti span {
   display: inline-block;

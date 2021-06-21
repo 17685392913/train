@@ -21,11 +21,11 @@
         <li><a href="news.html">新闻</a></li>
         <li><a href="user.html">关于我们</a></li>
       </ul>
-    </div>
-    <div class="new_le">
-			<span>what's new!</span>
-		</div>
+    </div> 
   </div>
+  <div class="new_le">
+			<span>orchard</span>
+		</div>
   <div class="news_con">
     <ul class="news_li">
     </ul>
@@ -72,15 +72,12 @@
   <script>
     $(document).ready(function(){
 
-      let m = 1;
+      let m = window.location.href.split("?page=")[1] || 1;
 
       //获取点击页的数据并添加到页面中
-      let add = function(page,flag) {
+      let add = function(page) {
         axios.get("https://lingqule.papamk.com/wp-json/w2w/v1/products?page="+page).then(function(res){
-          
-          if(flag == 1) {
-            $(".news_li").empty();
-          }
+      
           for(let i=0; i<res.data.length-1; i++){
             
             let li = $('<li></li>');
@@ -101,16 +98,20 @@
           })
         })
       }
-      
+
+      function getUrl(page) {
+
+        window,location.href = `?page=${page}`;
+      }
+
       //页面初始时自动获取第一页的数据并显示
-      add(1,0);
+      add(m);
 
       //点击事件
       $(".page-id").each(function(){ 
 
         $(this).click(function(){
-          add($(this).html(),1);
-          m = parseInt($(this).html());
+          getUrl(parseInt($(this).html()));
         })
       });
 
@@ -119,14 +120,12 @@
         if(m <= 1) {
           return
         }
-        add( m - 1,1);
-        m = m-1;
+        getUrl(m - 1);
       });
 
       // 下一页
       $(".next").click(function(){
-        add( m + 1,1);
-        m = m + 1;
+        getUrl(parseInt(m) + 1);
       });
     })
   </script>
