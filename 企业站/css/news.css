@@ -59,18 +59,30 @@
   align-items: center;
 }
 .news_li li {
-  width: 350px;
+  width: 370px;
+  height: 431px;
   margin-top: 20px;
+  text-align: center;
+}
+.news_li span {
+  font-size: 20px;
 }
 .news_li img {
+  display: inline-block;
   width: 350px;
   height: 350px;
+  padding-top: 5px;
+}
+.news_li li:hover {
+  border: 1px solid #f00;
+  margin-top: -20px;
 }
 .news_con nav {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .footer {
   background-color: #f4f4f4;
   margin-top: 20px;

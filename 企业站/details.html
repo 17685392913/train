@@ -53,12 +53,23 @@
     <div>版权所有&copy;天天果园</div>
   </div>
   <script>
+
+    function isSingle(m) {
+      let datat = m.toString();
+      if(datat.length == 1){
+        datat = "0"+datat;
+      }
+      return datat;
+    }
+
     $(document).ready(function(){
       axios.get(`https://lingqule.papamk.com/wp-json/w2w/v1/products/${window.location.search.split('=')[1]}`).then(function(res){
-        console.log(res.data);
+        // console.log(res.data);
+        var d = new Date(res.data.date_created);
+        var datetime=d.getFullYear() + '-' + isSingle(d.getMonth() + 1) + '-' + isSingle(d.getDate()) + " " + isSingle(d.getHours()) +":"+ isSingle(d.getMinutes()) +":"+ isSingle(d.getSeconds());
         $(".deta_ti").append(`
           <h2>${res.data.name}</h2>
-          <span>${res.data.date_created}</span>
+          <span>${datetime}</span>
         `);
         $(".deta_img").src;
         $(".deta_img").attr('src',res.data.images[0].src);

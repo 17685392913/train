@@ -36,9 +36,9 @@
             <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
-        <li class="page-item"><a class="page-id page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-id page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-id page-link" href="#">3</a></li>
+        <li class="page-item "><a class="page-id page-link page1" href="#">1</a></li>
+        <li class="page-item"><a class="page-id page-link page2" href="#">2</a></li>
+        <li class="page-item"><a class="page-id page-link page3" href="#">3</a></li>
         <li class="page-item">
           <a class="page-link next" href="#" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
@@ -74,28 +74,51 @@
 
       let m = window.location.href.split("?page=")[1] || 1;
 
+      function isSingle(m) {
+        let datat = m.toString();
+        if(datat.length == 1){
+          datat = "0"+datat;
+        }
+        return datat;
+      }
       //获取点击页的数据并添加到页面中
       let add = function(page) {
         axios.get("https://lingqule.papamk.com/wp-json/w2w/v1/products?page="+page).then(function(res){
       
           for(let i=0; i<res.data.length-1; i++){
-            
+            var d = new Date(res.data[i].date_created);
+            var datetime=d.getFullYear() + '-' + isSingle(d.getMonth() + 1) + '-' + isSingle(d.getDate()) + " " + isSingle(d.getHours()) +":"+ isSingle(d.getMinutes()) +":"+ isSingle(d.getSeconds());
             let li = $('<li></li>');
             li.append(`
               <img src=${res.data[i].images[0].src}>
-              <h3>${res.data[i].name}</h3>
-              <p>${res.data[i].date_created}</p>
+              <span>${res.data[i].name}</span>
+              <p>${datetime}</p>
             `);
             $(".news_li").append(li);
             li.attr('id',res.data[i].id);
           }
 
+          //设置当前页样式
+          if(page == 1) {
+            $(".page1").css({
+              background: '#c0c0c0'
+            })
+          }else if(page == 2) {
+            $(".page2").css({
+              background: '#c0c0c0'
+            })
+          }else if(page == 3) {
+            $(".page3").css({
+              background: '#c0c0c0'
+            })
+          }
           //跳转详情页
           $(".news_li li").each(function(){
             $(this).click(function(){
               window.location.href = `details.html?id=${$(this).attr('id')}`;
             })
           })
+
         })
       }
 
@@ -108,9 +131,11 @@
       add(m);
 
       //点击事件
+
       $(".page-id").each(function(){ 
 
         $(this).click(function(){
+
           getUrl(parseInt($(this).html()));
         })
       });
