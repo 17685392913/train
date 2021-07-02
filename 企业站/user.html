@@ -4,61 +4,78 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<link rel="stylesheet" href="./css/user.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
 	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
 	<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=uG4Cl4pP5lDeuCZ7SDqXRSQjfmHiAKPH"></script>
 	<title>地图展示</title>
 </head>
 <body>
 	<div class="headers">
-    <div class="containers">
-      <i class="icon"></i>
-      <span>天天果园</span>
-      <ul>
-        <li><a href="index.html">首页</a></li>
-        <li><a href="news.html">新闻</a></li>
-        <li><a href="user.html">关于我们</a></li>
-      </ul>
+    <div class="con_text container">
+			<div>
+				<i class="icon"></i>
+        <span>天天果园</span>
+			</div>
+			<div class="my_meun">菜单</div>
+      <div class="con_right list list-mobile">
+				<ul>
+					<li><a href="index.html">首页</a></li>
+					<li><a href="news.html">新闻</a></li>
+					<li><a href="user.html">关于我们</a></li>
+				</ul>
+			</div>
+      
     </div>
   </div>
-	<div class="about">
+	<div class="about container">
 		<h2>关于我们<h2>
 	</div>
 	<div class="main">
-		<div id="allmap"></div>
-		<div class="content">
-			<p>天天果园隶属于上海天天鲜果电子商务有限公司。成立于2009年,是一家基于互联网技术的生鲜服务提供商。
-				初心是希望让所有人,轻松愉快地享用到全球优质的生鲜商品。用认真严苛的态度,对待每一个环节,
-				不断改进,提升用户体验。选择与业内更专业供应商.机构合作,确保规范和品质。
-			</p>
-			<ul>
-				<li>
-          <img src="./img/地图2.png" alt=""><span class="place"></span>
-        </li>
-				<li>
-          <img src="./img/邮箱.png" alt=""><span>mys@example.com</span>
-        </li>
-				<li>
-          <img src="./img/联系我们.png" alt=""><span>123-456-789</span>
-        </li>
+		<div class="container">
+			<ul class="content_ul row">
+				<li class="col-lg-6 col-md-12 col-sm-12">
+					<div id="allmap"></div>
+				</li>
+				<li class="col-lg-6 col-md-12 col-sm-12">
+					<div class="content">
+						<p>天天果园隶属于上海天天鲜果电子商务有限公司。成立于2009年,是一家基于互联网技术的生鲜服务提供商。
+							初心是希望让所有人,轻松愉快地享用到全球优质的生鲜商品。用认真严苛的态度,对待每一个环节,
+							不断改进,提升用户体验。选择与业内更专业供应商.机构合作,确保规范和品质。
+						</p>
+						<ul>
+							<li>
+								<img data-src="./img/地图2.png" class="lazyload" alt=""><span class="place"></span>
+							</li>
+							<li>
+								<img data-src="./img/邮箱.png" class="lazyload" alt=""><span>mys@example.com</span>
+							</li>
+							<li>
+								<img data-src="./img/联系我们.png" class="lazyload" alt=""><span>123-456-789</span>
+							</li>
+						</ul>
+					</div>
+				</li>
 			</ul>
-		</div>
+		</div>	
 	</div>
 	<div class="footer">
-		<ul class="footer_top">
-			<li>
-        <img src="./img/地图2.png" alt="">
+		<ul class="footer_top container">
+			<li class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+        <img data-src="./img/地图2.png" class="lazyload" alt="">
         <p>福州市</p>
       </li>
-      <li>
-        <img src="./img/邮箱.png" alt="">
+      <li class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+        <img data-src="./img/邮箱.png" class="lazyload" alt="">
         <p>mys@example.com</p>
       </li>
-      <li>
-        <img src="./img/联系我们.png" alt="">
+      <li class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+        <img data-src="./img/联系我们.png" class="lazyload" alt="">
         <p>123-456-789</p>
       </li>
-      <li>
-        <img src="./img/二维码.png" alt="">
+      <li class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+        <img data-src="./img/二维码.png" class="lazyload" alt="">
         <p>二维码</p>
       </li>
 		</ul>
@@ -70,6 +87,14 @@
 <script type="text/javascript">
 
 	$(document).ready(function(){
+
+		$(".my_meun").click(function(){
+        if($(".list").hasClass("list-mobile")){
+          $(".list").removeClass("list-mobile")
+        }else{
+          $(".list").addClass("list-mobile")
+        }
+    })
 
 		// 百度地图API功能
 		var map = new BMap.Map("allmap");

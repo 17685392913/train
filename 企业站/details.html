@@ -5,53 +5,61 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>详情页</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
   <link rel="stylesheet" href="./css/details.css">
 </head>
 <body>
   <div class="headers">
-    <div class="containers">
-      <i class="icon"></i>
-      <span>天天果园</span>
-      <ul>
-        <li><a href="index.html">首页</a></li>
-        <li><a href="news.html">新闻</a></li>
-        <li><a href="user.html">关于我们</a></li>
-      </ul>
+    <div class="con_text container">
+			<div>
+				<i class="icon"></i>
+        <span>天天果园</span>
+			</div>
+			<div class="my_meun">菜单</div>
+      <div class="con_right list list-mobile">
+				<ul>
+					<li><a href="index.html">首页</a></li>
+					<li><a href="news.html">新闻</a></li>
+					<li><a href="user.html">关于我们</a></li>
+				</ul>
+			</div>
     </div>
   </div>
-  <div class="deta_ti">
+  <div class="deta_ti container">
 	</div>
-  <div class="detail">
-    <img class="deta_img" src="" alt="">
+  <div class="detail container col-md-12 row">
+    <img class="deta_img lazyload" data-src="" alt="">
     <p>蔬菜(vegetables)是指可以做菜、烹饪成为食品的一类植物或菌类，蔬菜是人们日常饮食中必不可少的食物之一。
       蔬菜可提供人体所必需的多种维生素和矿物质等营养物质。</p>
     <p>据国际物质粮农组织1990年统计，人体必需的维生素C的90%、维生素A的60%来自蔬菜。此外，蔬菜中还有多种多样的植物化学物质，
       是人们公认的对健康有效的成分，目前果蔬中的营养素可以有效预防慢性、退行性疾病的多种物质，正在被人们研究发现。</p>
   </div>
   <div class="footer">
-    <ul class="footer_top">
-      <li>
-        <img src="./img/地图2.png" alt="">
+		<ul class="footer_top container">
+			<li class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+        <img data-src="./img/地图2.png" class="lazyload" alt="">
         <p>福州市</p>
       </li>
-      <li>
-        <img src="./img/邮箱.png" alt="">
+      <li class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+        <img data-src="./img/邮箱.png" class="lazyload" alt="">
         <p>mys@example.com</p>
       </li>
-      <li>
-        <img src="./img/联系我们.png" alt="">
+      <li class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+        <img data-src="./img/联系我们.png" class="lazyload" alt="">
         <p>123-456-789</p>
       </li>
-      <li>
-        <img src="./img/二维码.png" alt="">
+      <li class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+        <img data-src="./img/二维码.png" class="lazyload" alt="">
         <p>二维码</p>
       </li>
-    </ul>
-    <hr>
-    <div>版权所有&copy;天天果园</div>
-  </div>
+		</ul>
+		<hr>
+		<div>版权所有&copy;天天果园</div>
+	</div>
   <script>
 
     function isSingle(m) {
@@ -63,16 +71,25 @@
     }
 
     $(document).ready(function(){
-      axios.get(`https://lingqule.papamk.com/wp-json/w2w/v1/products/${window.location.search.split('=')[1]}`).then(function(res){
-        // console.log(res.data);
-        var d = new Date(res.data.date_created);
-        var datetime=d.getFullYear() + '-' + isSingle(d.getMonth() + 1) + '-' + isSingle(d.getDate()) + " " + isSingle(d.getHours()) +":"+ isSingle(d.getMinutes()) +":"+ isSingle(d.getSeconds());
+
+      $(".my_meun").click(function(){
+        if($(".list").hasClass("list-mobile")){
+          $(".list").removeClass("list-mobile")
+        }else{
+          $(".list").addClass("list-mobile")
+        }
+      })
+
+      axios.get(`https://www.fastmock.site/mock/1505971fe2b4fba96a305991795cbde6/mys-01/user01?id=${window.location.search.split('=')[1]}`).then(function(res){
+        console.log(res.data);
+        // var d = new Date(res.data.date_created);
+        // var datetime=d.getFullYear() + '-' + isSingle(d.getMonth() + 1) + '-' + isSingle(d.getDate()) + " " + isSingle(d.getHours()) +":"+ isSingle(d.getMinutes()) +":"+ isSingle(d.getSeconds());
         $(".deta_ti").append(`
-          <h2>${res.data.name}</h2>
-          <span>${datetime}</span>
+          <h2>${res.data.data.news.title}</h2>
+          <span>${res.data.data.news.time}</span>
         `);
         $(".deta_img").src;
-        $(".deta_img").attr('src',res.data.images[0].src);
+        $(".deta_img").attr('src',res.data.data.news.src);
       })
     })
   </script>

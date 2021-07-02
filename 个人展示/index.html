@@ -5,73 +5,163 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="header">
-    <div class="container">
-      <i class="icon"></i>
-      <span>极客大叔的爱好</span>
-      <ul>
-        <li><a href="#">喜欢的电影</a></li>
-        <li><a href="#">喜欢的书</a></li>
-        <li><a href="#">聊一聊</a></li>
+  <div class="header_top">
+    <div class="container con_text">
+      <div class="con_left">
+        <i class="icon"></i>
+        <span>极客大叔的爱好</span>
+      </div>
+      <div class="my_meun">
+        菜单
+      </div>
+      <div class="con_right list list-mobile">
+        <ul>
+          <li><a href="#">喜欢的电影</a></li>
+          <li><a href="#">喜欢的书</a></li>
+          <li><a href="#">聊一聊</a></li>
       </ul>
+      </div>
+      
     </div>
   </div>
   <div class="main">
-    <div class="movies">
+    <div class="container movies">
       <h2>喜欢的电影</h2>
       <hr>
       <ul>
-        <li>
-          <img src="./img/海王.jpg" alt="海王">
-          <h4>海王</h4>
+        <li class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+          <div class="card">
+            <img src="./img/海王.jpg" alt="海王">
+            <h4>海王</h4>
+          </div>
         </li>
-        <li>
-          <img src="./img/海王.jpg" alt="海王">
-          <h4>海王</h4>
+        <li class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+          <div class="card">
+            <img src="./img/海王.jpg" alt="海王">
+            <h4>海王</h4>
+          </div>
         </li>
-        <li>
-          <img src="./img/海王.jpg" alt="海王">
-          <h4>海王</h4>
+        <li class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+          <div class="card">
+            <img src="./img/海王.jpg" alt="海王">
+            <h4>海王</h4>
+          </div>
         </li>
-        <li>
-          <img src="./img/海王.jpg" alt="海王">
-          <h4>海王</h4>
+        <li class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+          <div class="card">
+            <img src="./img/海王.jpg" alt="海王">
+            <h4>海王</h4>
+          </div>
         </li>
       </ul>
     </div>
-    <div class="books">
+    <div class="container books">
       <h2>喜欢的书</h2>
       <hr>
       <ul>
-        <li>
-          <img src="./img/黄金时代.jpg" alt="">
-          <h4>黄金时代</h4>
+        <li class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+          <div class="card">
+            <img src="./img/黄金时代.jpg" alt="">
+            <h4>黄金时代</h4>
+          </div>
         </li>
-        <li>
-          <img src="./img/黄金时代.jpg" alt="">
-          <h4>黄金时代</h4>
+        <li class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+          <div class="card">
+            <img src="./img/黄金时代.jpg" alt="">
+            <h4>黄金时代</h4>
+          </div>
         </li>
-        <li>
-          <img src="./img/黄金时代.jpg" alt="">
-          <h4>黄金时代</h4>
+        <li class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+          <div class="card">
+            <img src="./img/黄金时代.jpg" alt="">
+            <h4>黄金时代</h4>
+          </div>
         </li>
-        <li>
-          <img src="./img/黄金时代.jpg" alt="">
-          <h4>黄金时代</h4>
+        <li class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+          <div class="card">
+            <img src="./img/黄金时代.jpg" alt="">
+            <h4>黄金时代</h4>
+          </div>
         </li>
       </ul>
     </div>
   </div>
   <div class="footer">
-    <div class="footer_top">
-      <p>王小波说他是一只特立独行的猪，那我就当个一只特立独行的鸟吧。交个朋友么，扫下右边的二维码。</p>
-      <img src="./img/二维码.jpg" alt="二维码">
+    <div class="footer_top container">
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        <p>王小波说他是一只特立独行的猪，那我就当个一只特立独行的鸟吧。交个朋友么，扫下右边的二维码。</p>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <img src="./img/二维码.jpg" alt="二维码">
+      </div>
     </div>
-    <hr>
-    <div class="footer_bottom">版权所有&copy;极客大叔</div>
+    <hr class=" container ">
+    <div class="footer_bottom container">版权所有&copy;极客大叔</div>
   </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">联系我们</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email地址</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">您想说的话</label>
+      <textarea type="password" class="form-control" id="exampleInputPassword1"></textarea>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+    <button id="submit" type="button" class="btn btn-primary">提交</button>
+  </div>
+  </div>
+  </div>
+  </div>
+  <script>
+    let myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+    $(document).ready(function(){
+      $(".my_meun").click(function(){
+        if($(".list").hasClass("list-mobile")){
+          $(".list").removeClass("list-mobile")
+        }else{
+          $(".list").addClass("list-mobile")
+        }
+      })
+      $("#submit").click(function(){
+        let email = $("#exampleInputEmail1").val();
+        let password = $("#exampleInputPassword1").val();
+        console.log(email,password);
+        axios({
+          url: 'https://rpthqmyc.lc-cn-n1-shared.com/1.1/classes/data',
+          method: 'post',
+          headers:{
+            'X-LC-Id': 'RpThQMycsXA3ejXhR3MKixmp-gzGzoHsz',
+            'X-LC-Key':"BJrbO4oYNy85ymYKBTuawJoO"
+          },
+          data: {
+            email: email,
+            message: password
+          }
+        })
+        myModal.hide();
+      })
+    })
+  </script>
 </body>
 </html>

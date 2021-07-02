@@ -7,19 +7,27 @@
     <title>天天果园</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
     <link rel="stylesheet" href="./css/style.css">
 
 </head>
 <body>
   <div class="headers">
-    <div class="containers">
-      <i class="icon"></i>
-      <span>天天果园</span>
-      <ul>
-        <li><a href="index.html">首页</a></li>
-        <li><a href="news.html">新闻</a></li>
-        <li><a href="user.html">关于我们</a></li>
-      </ul>
+    <div class="con_text container">
+      <div>
+        <i class="icon"></i>
+        <span>天天果园</span>
+      </div>
+      <div class="my_meun">菜单</div>
+      <div class="con_right list list-mobile">
+        <ul>
+          <li><a href="index.html">首页</a></li>
+          <li><a href="news.html">新闻</a></li>
+          <li><a href="user.html">关于我们</a></li>
+        </ul>
+      </div>
     </div>
   </div>
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -30,13 +38,13 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="./img/banner0.jpeg" class="d-block w-100" alt="...">
+        <img data-src="./img/banner0.jpeg" data-srcset="./img/banner0_gaitubao_546x307.jpg 300w,./img/banner0_gaitubao_827x465.jpg 500w,./img/banner0.jpeg 992w" data-size="auto" class="d-block w-100 lazyload" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="./img/banner1.jpeg" class="d-block w-100" alt="...">
+        <img data-src="./img/banner1.jpeg" data-srcset="./img/banner1_gaitubao_542x305.jpg 300w,./img/banner1_gaitubao_830x467.jpg 500w,./img/banner1.jpeg 992w" data-size="auto" class="d-block w-100 lazyload" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="./img/banner2.jpeg" class="d-block w-100" alt="...">
+        <img data-src="./img/banner2.jpeg" data-srcset="./img/banner2_gaitubao_579x386.jpg 300w,./img/banner2_gaitubao_879x586.jpg 500w,./img/banner2.jpeg 992w" data-size="auto" class="d-block w-100 lazyload" alt="...">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -49,105 +57,192 @@
     </button>
   </div>
   <div class="main">
-    <h2>服务范围</h2>
-    <ul class="service">
-      <li>
-        <img src="./img/位置.png">
-        <h4>产地直采</h4>
-      </li>
-      <li>
-        <img src="./img/钻石.png">
-        <h4>品质质控</h4>
-      </li>
-      <li>
-        <img src="./img/雪花.png">
-        <h4>全程冷链</h4>
-      </li>
-      <li>
-        <img src="./img/联系我们.png">
-        <h4>专享客服</h4>
-      </li>
-    </ul>
-    <h2>团队介绍</h2>
-    <div class="team">
-      <div class="img_in"><img src="./img/123.jpeg"></div>
-      <div class="present">
-        <h2>自建物流</h2>
-        <p>只为新鲜，自建专业冷库。10000平米专业冷库，空间分类满足各类鲜果保鲜保温需求，
-          专业库管质检人员全天候监控科学仓管制度确保鲜果快速流通。
-          </p>
-        <hr>
-        <p class="two_p">鲜果配送是一场与时间抢鲜的赛跑，100辆运输车365天全年无休专业防震防碰保温措施层层保护。
-          </p>
-      </div>
-      <div class="present">
-        <h2>售后服务</h2>
-        <p>售后服务保障，
-          请您在收到产品后,先清点产品的数量以及检查产品的质量,若有任何质量问题,可以在配送人员在场的情况下当场投诉,以便果园能够尽快为您提供售后服务。
-        </p>
-        <hr>
-        <p class="two_p">在您收到产品48小时内,对产品质量有任何问题,都可以
-          下载app,通过“我的果园”―“在线客服""联系在线客服进行咨询。</p>
-      </div>
-      <div class="img_in"><img src="./img/234.jpeg"></div>
-      <div class="img_in"><img src="./img/345.jpeg"></div>
-      <div class="present">
-          <h2>企业团购</h2>
-          <p>送领导、送客户.商务会议现场招待及礼品,也是企业形象展示的重要方式。带有公司logo.与众不同、口味不俗的礼篮礼盒,券卡祝您一臂之力。
-          </p>
-          <hr>
-          <p class="two_p">健康鲜果生活，
-            天天果园甄选世界各地高品质的鲜果美食,侣导高品质生活,让新鲜美味的鲜果成为您健康生活的好伙伴。
-            </p>
-      </div>
-    </div>
-    <h2>新闻动态</h2>
-    <div class="news">
-      <ul>
-        <li>
-          <img src="./img/水果.jpg" alt="">
-          <h4>总销量：85</h3>
-          <p>天天果园菲律宾都乐非转基因木瓜2个装单重约400g+新鲜水果包邮</p>
+    <div class="container">
+      <h2>服务范围</h2>
+      <ul class="service">
+        <li class="col-xl-3 col-lg-3 col-md-6 col-sm-6 icons">
+          <img data-src="./img/位置.png" class="lazyload">
+          <h4>产地直采</h4>
         </li>
-        <li>
-          <img src="./img/水果.jpg" alt="">
-          <h4>总销量：85</h3>
-          <p>天天果园菲律宾都乐非转基因木瓜2个装单重约400g+新鲜水果包邮</p>
+        <li class="col-xl-3 col-lg-3 col-md-6 col-sm-6 icons">
+          <img data-src="./img/钻石.png" class="lazyload">
+          <h4>品质质控</h4>
         </li>
-        <li>
-          <img src="./img/水果.jpg" alt="">
-          <h4>总销量：85</h3>
-          <p>天天果园菲律宾都乐非转基因木瓜2个装单重约400g+新鲜水果包邮</p>
+        <li class="col-xl-3 col-lg-3 col-md-6 col-sm-6 icons">
+          <img data-src="./img/雪花.png" class="lazyload">
+          <h4>全程冷链</h4>
         </li>
-        <li>
-          <img src="./img/水果.jpg" alt="">
-          <h4>总销量：85</h3>
-          <p>天天果园菲律宾都乐非转基因木瓜2个装单重约400g+新鲜水果包邮</p>
+        <li class="col-xl-3 col-lg-3 col-md-6 col-sm-6 icons">
+          <img data-src="./img/联系我们.png" class="lazyload">
+          <h4>专享客服</h4>
         </li>
       </ul>
     </div>
+    <div class="container">
+      <h2>团队介绍</h2>
+      <div class="team">
+        <ul class="row">
+          <li class="col-md-6 col-sm-6">
+            <div class="img_in imgs"><img data-src="./img/123.jpeg" class="lazyload"></div>
+          </li>
+          <li class="col-md-6 col-sm-6">
+            <div class="present img-right">
+            <span>自建物流</span>
+            <p>只为新鲜，自建专业冷库。10000平米专业冷库，空间分类满足各类鲜果保鲜保温需求，
+              专业库管质检人员全天候监控科学仓管制度确保鲜果快速流通。
+            </p>
+            <hr>
+            <p class="two_p">鲜果配送是一场与时间抢鲜的赛跑，100辆运输车365天全年无休专业防震防碰保温措施层层保护。
+            </p>
+          </div>
+          </li>
+          <li class="col-md-6 col-sm-6">
+            <div class="present imgs">
+            <span>售后服务</span>
+            <p>售后服务保障，
+              请您在收到产品后,先清点产品的数量以及检查产品的质量,若有任何质量问题,可以在配送人员在场的情况下当场投诉,以便果园能够尽快为您提供售后服务。
+            </p>
+            <hr>
+            <p class="two_p">在您收到产品48小时内,对产品质量有任何问题,都可以
+              下载app,通过“我的果园”―“在线客服""联系在线客服进行咨询。</p>
+          </div>
+          </li>
+          <li class="col-md-6 col-sm-6">
+            <div class="img_in img-right"><img data-src="./img/234.jpeg" class="lazyload"></div>
+          </li>
+          <li class="col-md-6 col-sm-6">
+            <div class="img_in imgs"><img data-src="./img/345.jpeg" class="lazyload"></div>
+          </li>
+          <li class="col-md-6 col-sm-6">
+            <div class="present img-right">
+              <span>企业团购</span>
+              <p>送领导、送客户.商务会议现场招待及礼品,也是企业形象展示的重要方式。带有公司logo.与众不同、口味不俗的礼篮礼盒,券卡祝您一臂之力。
+              </p>
+              <hr>
+              <p class="two_p">健康鲜果生活，
+                天天果园甄选世界各地高品质的鲜果美食,侣导高品质生活,让新鲜美味的鲜果成为您健康生活的好伙伴。
+                </p>
+          </div>
+          </li>
+        </ul> 
+    </div>
+    
+    </div>
+    <div class="container">
+      <h2>新闻动态</h2>
+      <div class="news">
+        <ul class="row news_ul">
+          <li class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div>
+              <img data-src="./img/水果.jpg" class="lazyload" alt="">
+              <h4>总销量：85</h3>
+              <p>天天果园菲律宾都乐非转基因木瓜2个装单重约400g+新鲜水果包邮</p>
+            </div>
+          </li>
+          <li class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div>
+              <img data-src="./img/水果.jpg" class="lazyload" alt="">
+              <h4>总销量：85</h3>
+              <p>天天果园菲律宾都乐非转基因木瓜2个装单重约400g+新鲜水果包邮</p>
+            </div>
+          </li>
+          <li class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div>
+              <img data-src="./img/水果.jpg" class="lazyload" alt="">
+              <h4>总销量：85</h3>
+              <p>天天果园菲律宾都乐非转基因木瓜2个装单重约400g+新鲜水果包邮</p>
+            </div>
+          </li>
+          <li class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div>
+              <img data-src="./img/水果.jpg"  class="lazyload" alt="">
+              <h4>总销量：85</h3>
+              <p>天天果园菲律宾都乐非转基因木瓜2个装单重约400g+新鲜水果包邮</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
   </div>
   <div class="footer">
-    <ul class="footer_top">
-      <li>
-        <img src="./img/地图2.png" alt="">
+    <ul class="footer_top container">
+      <li class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+        <img data-src="./img/地图2.png" class="lazyload" alt="">
         <p>福州市</p>
       </li>
-      <li>
-        <img src="./img/邮箱.png" alt="">
+      <li class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+        <img data-src="./img/邮箱.png" class="lazyload" alt="">
         <p>mys@example.com</p>
       </li>
-      <li>
-        <img src="./img/联系我们.png" alt="">
+      <li class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+        <img data-src="./img/联系我们.png" class="lazyload" alt="">
         <p>123-456-789</p>
       </li>
-      <li>
-        <img src="./img/二维码.png" alt="">
+      <li class="col-xl-3 col-lg-3 col-md-3 col-sm-6" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <img data-src="./img/二维码.png" class="lazyload" alt="">
         <p>二维码</p>
       </li>
     </ul>
     <hr>
     <div>版权所有&copy;天天果园</div>
   </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">联系我们</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email地址</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">您想说的话</label>
+        <textarea type="password" class="form-control" id="exampleInputPassword1"></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+      <button id="submit" type="button" class="btn btn-primary">提交</button>
+    </div>
+    </div>
+    </div>
+    </div>
+  <script>
+    $(document).ready(function(){
+      let myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+      $(".my_meun").click(function(){
+        if($(".list").hasClass("list-mobile")){
+          $(".list").removeClass("list-mobile")
+        }else{
+          $(".list").addClass("list-mobile")
+        }
+      })
+      $("#submit").click(function(){
+        let email = $("#exampleInputEmail1").val();
+        let password = $("#exampleInputPassword1").val();
+        console.log(email,password);
+        axios({
+          url: 'https://rpthqmyc.lc-cn-n1-shared.com/1.1/classes/data',
+          method: 'post',
+          headers:{
+            'X-LC-Id': 'RpThQMycsXA3ejXhR3MKixmp-gzGzoHsz',
+            'X-LC-Key':"BJrbO4oYNy85ymYKBTuawJoO"
+          },
+          data: {
+            email: email,
+            message: password
+          }
+        })
+        myModal.hide();
+      })
+    })
+  </script>
 </body>
 </html>
